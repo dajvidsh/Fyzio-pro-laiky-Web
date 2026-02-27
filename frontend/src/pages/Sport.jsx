@@ -6,73 +6,105 @@ export default function Sport() {
     <div className="bg-white min-h-screen">
       <article className="max-w-2xl mx-auto py-20 px-6">
 
-        {/* Header - Identický styl jako Principy */}
+        {/* Header - Konzistentní s Principy */}
         <header className="mb-16">
           <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-6">
-            Sport bez <br/>
-            <span className="text-yellow-500">limitů a zranění</span>
+          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
+            Sport a <span className="text-yellow-500">pohyb</span>
           </h1>
-          <p className="text-xl text-slate-500 font-light leading-relaxed">
-            Sport by měl tělo rozvíjet, ne ho ničit. Ukážu vám, jak efektivně propojit trénink s chytrou fyzioterapií.
+          <p className="text-xl text-slate-500 font-light mb-4">
+            Jak správně sportovat a předcházet zraněním.
           </p>
+          <div className="text-sm text-slate-400 font-medium uppercase tracking-widest">
+            Čas čtení: 10 minut
+          </div>
         </header>
 
-        {/* Sekce - Identický styl jako Principy */}
-        <div className="space-y-12 text-slate-700 leading-relaxed text-lg">
+        <div className="space-y-16 text-slate-700 leading-relaxed text-lg">
 
+          {/* Sekce 01: Rozcvičení */}
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">01</span>
-              Chytrý Warm-up
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <span className="text-yellow-500 font-black text-3xl">01</span>
+              Rozcvičení před sportem
             </h2>
-            <p>
-              Zapomeňte na statické protahování před výkonem. Tělo potřebuje <strong>dynamickou aktivaci</strong>. Naučím vás, jak „probudit“ stabilizační svaly, aby vaše klouby byly v bezpečí i při maximálním zatížení.
+            <p className="mb-6">
+              Správné rozcvičení připraví tělo na následující zátěž, zvýší prokrvení svalů a sníží riziko zranění. Rozcvičení by mělo trvat <strong>minimálně 10–15 minut</strong> a zahrnovat:
             </p>
+            <ul className="space-y-3 pl-5 border-l-2 border-slate-100">
+              <li className="flex items-start gap-3">
+                <span className="text-yellow-500 font-bold">•</span> Lehkou aerobní aktivitu (běh, kolo, švihadlo)
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-yellow-500 font-bold">•</span> Dynamické protažení hlavních svalových skupin
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-yellow-500 font-bold">•</span> Aktivaci stabilizačních svalů
+              </li>
+            </ul>
           </section>
 
+          {/* Sekce 02: Běh */}
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">02</span>
-              Kompenzace zátěže
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <span className="text-yellow-500 font-black text-3xl">02</span>
+              Běh
             </h2>
-            <p>
-              Každý sport jednostranně zatěžuje tělo – ať už běháte, hrajete tenis nebo zvedáte činky. Klíčem k dlouhověkosti ve sportu je <strong>vyrovnání těchto disbalancí</strong> dříve, než se promění v chronický zánět nebo bolest.
-            </p>
+            <h3 className="text-lg font-bold text-slate-800 mb-4 uppercase tracking-wide">Správná technika běhu</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {['Vzpřímený postoj s mírným předklonem', 'Dopady pod těžištěm těla', 'Relaxovaná ramena a ruce', 'Pravidelné dýchání'].map((item) => (
+                <li key={item} className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm font-medium">
+                  {item}
+                </li>
+              ))}
+            </ul>
           </section>
 
+          {/* Sekce 03: Silový trénink */}
           <section>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">03</span>
-              Vnímání únavy
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <span className="text-yellow-500 font-black text-3xl">03</span>
+              Silový trénink
             </h2>
-            <p>
-              Bolest při sportu není nepřítel, kterého je třeba umlčet práškem. Je to <strong>zpětná vazba</strong>. Učím sportovce rozpoznat rozdíl mezi „dobrou“ tréninkovou únavou a signálem, že se blíží zranění.
+            <p className="mb-8 italic text-slate-500 border-l-4 border-yellow-400 pl-6">
+              Silový trénink je důležitý pro všechny věkové kategorie. Pomáhá udržovat svalovou hmotu a zlepšuje metabolismus.
             </p>
-          </section>
 
-          {/* Obrázek - Stejný styl (grayscale, zaoblení) */}
-          <div className="py-8">
-            <div className="h-64 rounded-3xl overflow-hidden bg-slate-100 border border-slate-100">
-              <img
-                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800"
-                alt="Sportovní příprava"
-                className="w-full h-full object-cover grayscale opacity-80"
-              />
+            <div className="grid gap-8">
+              <div className="group">
+                <h4 className="text-yellow-500 font-bold mb-2 tracking-wide uppercase text-xs">Pro začátečníky</h4>
+                <p>Začněte s cviky s vlastní váhou těla. Zaměřte se na <strong>správnou techniku</strong> před přidáváním zátěže.</p>
+              </div>
+              <div className="group">
+                <h4 className="text-yellow-500 font-bold mb-2 tracking-wide uppercase text-xs">Pro pokročilé</h4>
+                <p>Postupně zvyšujte zátěž, dbejte na pestrost cvičení a pravidelně měňte tréninkový plán.</p>
+              </div>
             </div>
-          </div>
-
-          <section>
-            <p className="font-medium text-slate-900">
-              Můj přístup ke sportu není o zákazu pohybu, ale o jeho optimalizaci. Chci, abyste se mohli věnovat tomu, co milujete, co nejdéle to půjde.
-            </p>
           </section>
+
+          {/* Sekce 04: Regenerace */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <span className="text-yellow-500 font-black text-3xl">04</span>
+              Regenerace po sportu
+            </h2>
+            <p className="mb-6">
+              Regenerace je stejně důležitá jako samotný trénink. Po sportovní aktivitě nezapomeňte:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm font-medium">Zpomalit a vydýchat se</div>
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm font-medium">Lehké protažení</div>
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm font-medium">Doplnit tekutiny</div>
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 text-sm font-medium">Dostatečný příjem živin</div>
+            </div>
+          </section>
+
         </div>
 
-        {/* Footer link - místo buttonu používáme Link pro bleskový přechod */}
+        {/* Navigace zpět */}
         <div className="mt-20 pt-10 border-t border-slate-100">
-           <Link to="/" className="text-yellow-500 font-bold hover:underline transition-all inline-block">
-             ← Zpět na hlavní stranu
+           <Link to="/" className="text-yellow-500 font-bold hover:underline transition-all inline-flex items-center gap-2">
+             ← Zpět na úvodní stranu
            </Link>
         </div>
 

@@ -26,7 +26,7 @@ export default function AboutMe() {
           {/* Pravá strana: Text */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
-              Ahoj, jsem <span className="text-yellow-500 text-nowrap underline decoration-yellow-400 underline-offset-8">Radim</span>, <br />
+              Ahoj já jsem <span className="text-yellow-500 text-nowrap underline decoration-yellow-400 underline-offset-8">Radim</span>, <br />
               váš průvodce zdravým pohybem
             </h2>
 

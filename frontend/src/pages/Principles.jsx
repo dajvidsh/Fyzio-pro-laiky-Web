@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function Principles() {
   return (
@@ -7,20 +8,22 @@ export default function Principles() {
 
         <header className="mb-16">
           <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-6">
-              Principy <br/>
-            <span className="text-yellow-500">Fyzioterapie</span>
+          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-4">
+            Principy <span className="text-yellow-500">Fyzioterapie</span>
           </h1>
-          <p className="text-xl text-slate-500 font-light leading-relaxed">
-            Metoda Fyzio pro laiky není o drilu v posilovně. Je to návrat k logice pohybu, kterou jsme ztratili.
+          <p className="text-xl text-slate-500 font-light mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
+          <div className="text-sm text-slate-400 font-medium uppercase tracking-widest">
+            Čas čtení: 8 minut
+          </div>
         </header>
 
         <div className="space-y-12 text-slate-700 leading-relaxed text-lg">
 
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">01</span>
+              <span className="text-yellow-500 font-black text-3xl">01</span>
               Zpomalení
             </h2>
             <p>
@@ -31,7 +34,7 @@ export default function Principles() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">02</span>
+              <span className="text-yellow-500 font-black text-3xl">02</span>
               Dech jako podpora
             </h2>
             <p>
@@ -41,7 +44,7 @@ export default function Principles() {
 
           <section>
             <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-              <span className="text-yellow-500 font-black">03</span>
+              <span className="text-yellow-500 font-black text-3xl">03</span>
               Pravidelnost
             </h2>
             <p>
@@ -67,9 +70,9 @@ export default function Principles() {
         </div>
 
         <div className="mt-20 pt-10 border-t border-slate-100">
-           <button className="text-yellow-500 font-bold hover:underline transition-all">
-             Zpět na hlavní stranu
-           </button>
+             <Link to='/' className="text-yellow-500 font-bold hover:underline transition-all">
+             ← Zpět na hlavní stranu
+             </Link>
         </div>
 
       </article>

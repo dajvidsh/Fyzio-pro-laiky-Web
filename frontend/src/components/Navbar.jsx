@@ -44,8 +44,8 @@ export default function Navbar() {
                 </div>
 
                 <Link to="#" className="text-slate-600 hover:text-yellow-500 font-medium transition-colors">Kurzy</Link>
-                <Link to="#" className="text-slate-600 hover:text-yellow-500 font-medium transition-colors">Blog</Link>
-                <Link to="#" className="text-slate-600 hover:text-yellow-500 font-medium transition-colors">Kontakt</Link>
+                <Link to="/blog" className="text-slate-600 hover:text-yellow-500 font-medium transition-colors">Blog</Link>
+                <Link to="/contact" className="text-slate-600 hover:text-yellow-500 font-medium transition-colors">Kontakt</Link>
 
             </div>
 
@@ -96,8 +96,8 @@ export default function Navbar() {
               </div>
 
               <Link to="#" className="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md">Kurzy</Link>
-              <Link to="#" className="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md">Blog</Link>
-              <Link to="#" className="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md">Kontakt</Link>
+              <Link to="/blog" className="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md">Blog</Link>
+              <Link to="/contact" className="block px-3 py-2 text-slate-600 font-medium hover:bg-slate-50 rounded-md">Kontakt</Link>
             </div>
           </div>
         )}

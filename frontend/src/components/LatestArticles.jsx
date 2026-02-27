@@ -1,33 +1,39 @@
-import React from 'react';
-
-const ARTICLES = [
-  {
-    id: 1,
-    title: "Jak správně sedět u počítače a neničit si záda",
-    excerpt: "Dlouhé sezení je zabiják zad. Máme pro vás 5 jednoduchých tipů, které můžete začít dělat hned teď.",
-    category: "Ergonomie",
-    date: "15. února 2026",
-    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=400"
-  },
-  {
-    id: 2,
-    title: "Proč vás bolí hlava? Možná je to od krční páteře",
-    excerpt: "Migrény a tenzní bolesti hlavy mají často původ v zatuhlých svalech krku. Ukážeme vám, jak je uvolnit.",
-    category: "Bolest hlavy",
-    date: "10. února 2026",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400"
-  },
-  {
-    id: 3,
-    title: "Ranní rozhýbání: 10 minut pro lepší den",
-    excerpt: "Krátká sestava cviků, která vás probere lépe než ranní káva. Zvládne ji každý hned po probuzení.",
-    category: "Cvičení",
-    date: "2. února 2026",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400"
-  }
-];
+import React, { useState, useEffect } from 'react';
+//
+// const ARTICLES = [
+//   {
+//     id: 1,
+//     title: "Jak správně sedět u počítače a neničit si záda",
+//     excerpt: "Dlouhé sezení je zabiják zad. Máme pro vás 5 jednoduchých tipů, které můžete začít dělat hned teď.",
+//     category: "Ergonomie",
+//     date: "15. února 2026",
+//     image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=400"
+//   },
+//   {
+//     id: 2,
+//     title: "Proč vás bolí hlava? Možná je to od krční páteře",
+//     excerpt: "Migrény a tenzní bolesti hlavy mají často původ v zatuhlých svalech krku. Ukážeme vám, jak je uvolnit.",
+//     category: "Bolest hlavy",
+//     date: "10. února 2026",
+//     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400"
+//   },
+//   {
+//     id: 3,
+//     title: "Ranní rozhýbání: 10 minut pro lepší den",
+//     excerpt: "Krátká sestava cviků, která vás probere lépe než ranní káva. Zvládne ji každý hned po probuzení.",
+//     category: "Cvičení",
+//     date: "2. února 2026",
+//     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400"
+//   }
+// ];
 
 export default function LatestArticles() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/articles').then(res => res.json()).then(data => setArticles(data)).catch(err => console.error("Chyba pri nacitani", err));
+  }, []);
+
   return (
     <section className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +51,7 @@ export default function LatestArticles() {
 
         {/* Mřížka článků */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ARTICLES.map((article) => (
+          {articles.map((article) => (
             <article key={article.id} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
               {/* Obrázek */}
               <div className="h-48 overflow-hidden">

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -22,7 +23,9 @@ export default function Hero() {
               Najít můj problém
             </button>
             <button className="bg-white text-slate-700 border-2 border-slate-200 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all active:scale-95">
-              Kontakt
+              <Link to="/contact">
+                Kontakt
+              </Link>
             </button>
           </div>
         </div>
