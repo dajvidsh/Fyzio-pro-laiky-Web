@@ -12,6 +12,9 @@ import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
 import Courses from "./pages/Courses.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Admin from "./pages/Admin.jsx";
+import ArticleDetail from "./pages/ArticleDetail.jsx";
+import Login from "./pages/Login.jsx";
 
 const Home = () => (
   <>
@@ -33,6 +36,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/blog/:id" element={<ArticleDetail />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         <Footer />
     </Router>

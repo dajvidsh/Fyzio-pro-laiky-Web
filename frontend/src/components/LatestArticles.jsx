@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 export default function LatestArticles() {
   const [articles, setArticles] = useState([]);
 
+  const latestArticles = [...articles]
+  .sort((a, b) => b.id - a.id)
+  .slice(0, 3);
+
   useEffect(() => {
     fetch('http://localhost:8000/api/articles').then(res => res.json()).then(data => setArticles(data)).catch(err => console.error("Chyba pri nacitani", err));
   }, []);
@@ -25,15 +29,25 @@ export default function LatestArticles() {
 
         {/* Mřížka článků */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
+          {latestArticles.map((article) => (
             <article key={article.id} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
               {/* Obrázek */}
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
+                {article.image ? (
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  /* Tady je ten náhradník */
+                  <div className="text-center">
+                    <span className="text-4xl">🤸</span> {/* Nebo jiná ikonka podle zaměření */}
+                    <div className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-2">
+                      Bez náhledu
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Obsah karty */}
@@ -46,16 +60,16 @@ export default function LatestArticles() {
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-yellow-500 transition-colors">
-                  <a href="#">{article.title}</a>
+                  <Link to={`/blog/${article.id}`}>{article.title}</Link>
                 </h3>
 
                 <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-3">
                   {article.excerpt}
                 </p>
 
-                <a href="#" className="text-sm font-bold text-slate-900 border-b-2 border-yellow-400 hover:border-yellow-500 pb-0.5 transition-all">
+                <Link to={`/blog/${article.id}`} className="text-sm font-bold text-slate-900 border-b-2 border-yellow-400 hover:border-yellow-500 pb-0.5 transition-all">
                   Číst více
-                </a>
+                </Link>
               </div>
             </article>
           ))}

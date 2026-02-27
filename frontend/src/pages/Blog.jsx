@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Blog() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const latestArticles = [...articles].sort((a, b) => b.id - a.id)
 
   useEffect(() => {
     fetch('http://localhost:8000/api/articles')
@@ -40,15 +41,27 @@ export default function Blog() {
           <div className="text-center py-20 text-slate-400 animate-pulse">Načítám články...</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {articles.map((article) => (
+            {latestArticles.map((article) => (
               <article key={article.id} className="group flex flex-col">
                 {/* Obrázek s efektem */}
                 <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  <div className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
+                      {article.image ? (
+                        <img
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        /* Tady je ten náhradník */
+                        <div className="text-center">
+                          <span className="text-4xl">🤸</span> {/* Nebo jiná ikonka podle zaměření */}
+                          <div className="text-[10px] font-black text-slate-300 uppercase tracking-widest mt-2">
+                            Bez náhledu
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-yellow-500 uppercase tracking-widest shadow-sm">
                     {article.category}
                   </div>
