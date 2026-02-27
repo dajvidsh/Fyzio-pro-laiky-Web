@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -11,9 +12,9 @@ export default function Footer() {
 
         {/* Odkazy */}
         <div className="flex justify-center gap-6 text-sm text-slate-500 mb-6">
-          <a href="#" className="hover:text-yellow-500 transition-colors">Úvod</a>
-          <a href="#" className="hover:text-yellow-500 transition-colors">Kontakt</a>
-          <a href="#" className="hover:text-yellow-500 transition-colors">Ochrana soukromí</a>
+          <Link to="/" className="hover:text-yellow-500 transition-colors">Úvod</Link>
+          <Link to="/contact" className="hover:text-yellow-500 transition-colors">Kontakt</Link>
+          <Link to="/" className="hover:text-yellow-500 transition-colors">Ochrana soukromí</Link>
         </div>
 
         {/* Copyright */}

@@ -1,31 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//
-// const ARTICLES = [
-//   {
-//     id: 1,
-//     title: "Jak správně sedět u počítače a neničit si záda",
-//     excerpt: "Dlouhé sezení je zabiják zad. Máme pro vás 5 jednoduchých tipů, které můžete začít dělat hned teď.",
-//     category: "Ergonomie",
-//     date: "15. února 2026",
-//     image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=400"
-//   },
-//   {
-//     id: 2,
-//     title: "Proč vás bolí hlava? Možná je to od krční páteře",
-//     excerpt: "Migrény a tenzní bolesti hlavy mají často původ v zatuhlých svalech krku. Ukážeme vám, jak je uvolnit.",
-//     category: "Bolest hlavy",
-//     date: "10. února 2026",
-//     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400"
-//   },
-//   {
-//     id: 3,
-//     title: "Ranní rozhýbání: 10 minut pro lepší den",
-//     excerpt: "Krátká sestava cviků, která vás probere lépe než ranní káva. Zvládne ji každý hned po probuzení.",
-//     category: "Cvičení",
-//     date: "2. února 2026",
-//     image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400"
-//   }
-// ];
+import {Link} from "react-router-dom";
 
 export default function LatestArticles() {
   const [articles, setArticles] = useState([]);
@@ -44,9 +18,9 @@ export default function LatestArticles() {
             <h2 className="text-3xl font-bold text-slate-900">Nejnovější články</h2>
             <p className="text-slate-600 mt-2">Přečtěte si tipy pro váš zdravý pohyb</p>
           </div>
-          <a href="#" className="hidden md:block text-yellow-500 font-bold hover:text-yellow-600 transition-colors">
+          <Link to="/blog" className="hidden md:block text-yellow-500 font-bold hover:text-yellow-600 transition-colors">
             Všechny články →
-          </a>
+          </Link>
         </div>
 
         {/* Mřížka článků */}
@@ -90,7 +64,9 @@ export default function LatestArticles() {
         {/* Mobilní tlačítko "Všechny články" */}
         <div className="mt-10 md:hidden">
           <button className="w-full bg-white border border-slate-200 py-3 rounded-xl font-bold text-slate-700 shadow-sm">
-            Všechny články
+            <Link to="/blog">
+              Všechny články
+            </Link>
           </button>
         </div>
 

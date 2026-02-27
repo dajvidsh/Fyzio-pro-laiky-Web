@@ -10,6 +10,8 @@ import Principles from './pages/Principles';
 import Sport from './pages/Sport'
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
+import Courses from "./pages/Courses.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const Home = () => (
   <>
@@ -22,23 +24,17 @@ const Home = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white flex flex-col">
+        <ScrollToTop />
         <Navbar />
-
-        <main className="grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/principy" element={<Principles />} />
             <Route path="/sport" element={<Sport />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
-            {/* Tady můžeš přidávat další stránky:
-            <Route path="/kontakt" element={<Contact />} /> */}
+            <Route path="/courses" element={<Courses />} />
           </Routes>
-        </main>
-
         <Footer />
-      </div>
     </Router>
   );
 }

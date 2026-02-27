@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="Innitial commit, frontend">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Blog.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Contact.jsx" afterDir="false" />
+    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="Added database, front end on most pages">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ScrollToTop.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Courses.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/AboutMe.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/AboutMe.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/LatestArticles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/LatestArticles.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Principles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Principles.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Sport.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Sport.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +30,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "dajvidsh"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:dajvidsh/Fyzio-pro-laiky.git",
+    "accountId": "de124484-b8e0-4c75-b77d-988370cc5610"
+  }
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -126,7 +135,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1772197352954</updated>
-      <workItem from="1772197353988" duration="16706000" />
+      <workItem from="1772197353988" duration="18887000" />
     </task>
     <task id="LOCAL-00001" summary="Innitial commit, frontend">
       <option name="closed" value="true" />
@@ -136,15 +145,35 @@
       <option name="project" value="LOCAL" />
       <updated>1772210061985</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added database, front end on most pages">
+      <option name="closed" value="true" />
+      <created>1772214464302</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772214464302</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Innitial commit, frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Innitial commit, frontend" />
+    <MESSAGE value="Added database, front end on most pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added database, front end on most pages" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fyzio_pro_laiky$Fyzio_pro_laiky.coverage" NAME="Fyzio-pro-laiky Coverage Results" MODIFIED="1772197950735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
