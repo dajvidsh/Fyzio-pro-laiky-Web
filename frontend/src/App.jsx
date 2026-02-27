@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import Admin from "./pages/Admin.jsx";
 import ArticleDetail from "./pages/ArticleDetail.jsx";
 import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 const Home = () => (
   <>
@@ -39,6 +40,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/blog/:id" element={<ArticleDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         <Footer />
     </Router>

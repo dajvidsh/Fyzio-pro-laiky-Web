@@ -79,6 +79,28 @@ app.add_middleware(
 
 # --- ENDPOINTY ---
 
+# Funkce, která ověří token a vrátí uživatele (nebo vyhodí chybu)
+def get_current_user(token: str = Depends(oauth2_scheme), session: Session = Depends(get_session)):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            raise HTTPException(status_code=401, detail="Neplatný token")
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Neplatný token")
+
+    user = session.exec(select(User).where(User.email == email)).first()
+    if user is None:
+        raise HTTPException(status_code=401, detail="Uživatel neexistuje")
+    return user
+
+
+# Funkce, která ověří, jestli je uživatel ADMIN
+def get_admin_user(current_user: User = Depends(get_current_user)):
+    if not current_user.is_admin:
+        raise HTTPException(status_code=403, detail="Nemáte dostatečná oprávnění")
+    return current_user
+
 @app.get("/api/articles", response_model=List[Article])
 def get_articles(session: Session = Depends(get_session)):
     # Načteme všechny články z databáze
@@ -86,7 +108,7 @@ def get_articles(session: Session = Depends(get_session)):
     return articles
 
 @app.post("/api/articles", response_model=Article)
-def create_article(article: Article, session: Session = Depends(get_session)):
+def create_article(article: Article, session: Session = Depends(get_session), admin: User = Depends(get_admin_user)):
     # Uložíme nový článek do databáze
     session.add(article)
     session.commit()
@@ -95,15 +117,48 @@ def create_article(article: Article, session: Session = Depends(get_session)):
 
 
 # --- TENTO BLOK MOŽNÁ CHYBÍ NEBO JE CHYBNĚ ---
+from fastapi import Request
 
+
+# 1. Tato funkce zkusí přečíst token, ale pokud tam není, nevyhodí chybu
+async def get_optional_user(request: Request, session: Session = Depends(get_session)):
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return None
+
+    token = auth_header.split(" ")[1]
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email:
+            return session.exec(select(User).where(User.email == email)).first()
+    except:
+        return None
+    return None
+
+
+# 2. Samotný endpoint článku
 @app.get("/api/articles/{article_id}", response_model=Article)
-def get_article(article_id: int, session: Session = Depends(get_session)):
-    # session.get najde jeden konkrétní záznam podle ID
+def get_article(
+        article_id: int,
+        session: Session = Depends(get_session),
+        current_user: Optional[User] = Depends(get_optional_user)  # TADY JE TA ZMĚNA
+):
     article = session.get(Article, article_id)
-
     if not article:
-        from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="Článek nenalezen")
+
+    # Pokud je článek Premium, zkontrolujeme práva
+    if article.is_premium:
+        # Pustíme dál jen pokud je uživatel Admin nebo má zaplacené Premium
+        is_admin = current_user and current_user.is_admin
+        has_paid = current_user and current_user.has_premium
+
+        if not is_admin and not has_paid:
+            raise HTTPException(
+                status_code=402,  # Payment Required
+                detail="Tento obsah vyžaduje Premium členství."
+            )
 
     return article
 
@@ -134,6 +189,15 @@ def get_payment_info():
         "qr_code_url": qr_url,
         "instructions": "Po zaplacení mi pošlete email na info@fyzio.cz a já vám aktivuji přístup."
     }
+
+@app.get("/api/users", response_model=List[User])
+def get_users(
+    session: Session = Depends(get_session),
+    admin: User = Depends(get_admin_user)
+):
+    # Tento příkaz vytáhne úplně všechny uživatele z databáze
+    users = session.exec(select(User)).all()
+    return users
 
 @app.post("/api/users/{user_id}/toggle-premium")
 def toggle_premium(user_id: int, session: Session = Depends(get_session)):
@@ -193,3 +257,4 @@ def on_startup():
             session.add(admin)
             session.commit()
             print("--- ADMIN VYTVOŘEN (admin@fyzio.cz / mojeheslo123) ---")
+

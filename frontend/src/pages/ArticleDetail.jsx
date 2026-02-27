@@ -1,26 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 export default function ArticleDetail() {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isLocked, setIsLocked] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/articles/${id}`)
-      .then(res => res.json())
+    const token = localStorage.getItem('token');
+    const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+
+    fetch(`http://localhost:8000/api/articles/${id}`, { headers })
+      .then(res => {
+        if (res.status === 402) {
+          setIsLocked(true);
+          setLoading(false);
+          throw new Error("Premium Locked");
+        }
+        if (!res.ok) throw new Error("Chyba při načítání");
+        return res.json();
+      })
       .then(data => {
         setArticle(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(err => {
+        console.error(err);
+        setLoading(false); // Důležité: Přestat načítat i při chybě!
+      });
   }, [id]);
 
-  if (loading) return <div className="py-20 text-center text-slate-400">Načítám...</div>;
-  if (!article) return <div className="py-20 text-center text-slate-400">Článek nenalezen.</div>;
+  if (loading) return <div className="text-center py-20">Načítám...</div>;
 
-  // Bezpečná kontrola obsahu - pokud content chybí, dáme tam aspoň prázdný text
-  const content = article.content || "";
+  if (isLocked) return (
+    <div className="max-w-xl mx-auto py-20 text-center">
+       <h1 className="text-4xl font-black mb-4">🔒 Premium obsah</h1>
+       <p className="mb-8">Tento článek je dostupný pouze pro naše Premium členy.</p>
+       <button onClick={() => navigate('/register')} className="bg-yellow-500 px-8 py-3 rounded-xl font-bold">Chci Premium</button>
+    </div>
+  );
+
+  if (!article) return <div className="text-center py-20">Článek nebyl nalezen.</div>;
 
   return (
     <div className="bg-white min-h-screen">
@@ -59,16 +81,18 @@ export default function ArticleDetail() {
                 className="prose prose-slate max-w-none wrap-break-word"
                 dangerouslySetInnerHTML={{ __html: article.content.substring(0, 300) + "..." }}
               />
-              <div className="mt-12 p-10 bg-slate-900 rounded-[2.5rem] text-center text-white shadow-2xl">
-                 {/* ... tvůj kód zámku ... */}
-              </div>
+              {/*<div className="mt-12 p-10 bg-slate-900 rounded-[2.5rem] text-center text-white shadow-2xl">*/}
+              {/*   /!* ... tvůj kód zámku ... *!/*/}
+              {/*</div>*/}
             </>
           ) : (
             // Zde je to kouzlo pro zobrazení stylovaného textu
-            <div
-              className="prose prose-slate max-w-none wrap-break-word"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+            <div className="text-slate-800 text-lg leading-relaxed font-light">
+              <div
+                className="prose prose-slate lg:prose-xl max-w-none break-words text-slate-800 font-light leading-relaxed prose-headings:font-black prose-headings:text-slate-900 prose-strong:font-bold prose-a:text-blue-600"
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              />
+            </div>
           )}
         </div>
       </article>

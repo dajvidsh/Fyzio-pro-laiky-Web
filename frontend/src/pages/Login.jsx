@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -42,8 +42,11 @@ export default function Login() {
         <input type="password" placeholder="Heslo" className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 mb-8 outline-none focus:ring-2 focus:ring-blue-600/10" value={password} onChange={e => setPassword(e.target.value)} required />
 
         <button type="submit" className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-black transition-all">
-          Vstoupit do správy
+          Přihlásit se
         </button>
+        <p className="text-center mt-6 text-sm text-slate-400">
+          Nemáte účet? <Link to="/register" className="text-yellow-500 font-bold underline">Vytvořit účet</Link>
+        </p>
       </form>
     </div>
   );
