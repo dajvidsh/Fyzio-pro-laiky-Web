@@ -10,7 +10,8 @@ export default function Footer() {
           {/* LOGO A POPIS */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform text-sm">F</div>
+              {/*<div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform text-sm">F</div>*/}
+              <img src="/logo.svg" alt="Logo" className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform text-sm"></img>
               <span className="font-black text-lg tracking-tighter text-slate-900 uppercase">Fyzio<span className="text-yellow-500">pro</span>laiky</span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed max-w-xs font-light">

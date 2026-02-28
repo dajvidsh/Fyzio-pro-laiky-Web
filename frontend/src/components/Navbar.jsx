@@ -40,7 +40,8 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform">F</div>
+            {/*<div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform">F</div>*/}
+            <img src="/logo.svg" alt="Logo" className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center font-black text-white group-hover:rotate-12 transition-transform"></img>
             <span className="font-black text-xl tracking-tighter text-slate-900 uppercase">Fyzio<span className="text-yellow-500">pro</span>laiky</span>
           </Link>
 

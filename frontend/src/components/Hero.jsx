@@ -9,7 +9,7 @@ export default function Hero() {
 
           {/* Hlavní nadpis */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-            Fyzio pro <span className="text-yellow-500">Laiky</span>
+            Fyzio <span className="text-yellow-500">pro</span> Laiky
           </h1>
 
           {/* Popisek */}
