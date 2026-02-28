@@ -73,13 +73,13 @@ export default function ArticleDetail() {
         )}
 
         {/* Vykreslení obsahu */}
-        <div className="text-slate-800 text-lg leading-relaxed font-light prose prose-slate max-w-none">
+        <div className="text-slate-800 text-lg leading-relaxed font-light max-w-none">
           {article.is_premium ? (
             <>
               {/* U prémiových článků vyrenderujeme jen kousek */}
               <div
-                  className="prose prose-slate max-w-none wrap-break-word"
-                  dangerouslySetInnerHTML={{ __html: article.content.substring(0, 300) + "..." }}
+                  className="prose prose-slate max-w-none wrap-break-word whitespace-normal"
+                  dangerouslySetInnerHTML={{ __html: article.content.substring(0, 300).replace(/&nbsp;/g, ' ') + "..." }}
                 />
               {/*<div className="mt-12 p-10 bg-slate-900 rounded-[2.5rem] text-center text-white shadow-2xl">*/}
               {/*   /!* ... tvůj kód zámku ... *!/*/}
@@ -89,8 +89,8 @@ export default function ArticleDetail() {
             // Zde je to kouzlo pro zobrazení stylovaného textu
             <div className="text-slate-800 text-lg leading-relaxed font-light">
               <div
-                className="prose prose-slate lg:prose-xl max-w-none wrap-break-word text-slate-800 font-light leading-relaxed prose-headings:font-black prose-headings:text-slate-900 prose-strong:font-bold prose-a:text-blue-600"
-                dangerouslySetInnerHTML={{ __html: article.content }}
+                className="prose prose-slate lg:prose-xl max-w-none wrap-break-word whitespace-normal text-slate-800 font-light leading-relaxed prose-headings:font-black prose-headings:text-slate-900 prose-strong:font-bold prose-a:text-blue-600"
+                dangerouslySetInnerHTML={{ __html: article.content.replace(/&nbsp;/g, ' ') }}
               />
             </div>
           )}
