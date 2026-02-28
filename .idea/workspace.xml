@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="gdpr Footer.jsx">
-      <change afterPath="$PROJECT_DIR$/frontend/public/Document.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/logo.svg" afterDir="false" />
+    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="logo change">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ArticleDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ArticleDetail.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +139,7 @@
       <updated>1772197352954</updated>
       <workItem from="1772197353988" duration="18980000" />
       <workItem from="1772220955853" duration="8601000" />
-      <workItem from="1772289508745" duration="13101000" />
+      <workItem from="1772289508745" duration="15438000" />
     </task>
     <task id="LOCAL-00001" summary="Innitial commit, frontend">
       <option name="closed" value="true" />
@@ -215,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772297950888</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="logo change">
+      <option name="closed" value="true" />
+      <created>1772312484496</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1772312484496</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +247,8 @@
     <MESSAGE value="working app(kinda)" />
     <MESSAGE value="change of api address" />
     <MESSAGE value="gdpr Footer.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="gdpr Footer.jsx" />
+    <MESSAGE value="logo change" />
+    <option name="LAST_COMMIT_MESSAGE" value="logo change" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fyzio_pro_laiky$Fyzio_pro_laiky.coverage" NAME="Fyzio-pro-laiky Coverage Results" MODIFIED="1772197950735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
