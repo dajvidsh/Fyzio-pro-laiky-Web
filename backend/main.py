@@ -7,11 +7,20 @@ from jose import JWTError, jwt
 # from passlib.context import CryptContext
 import bcrypt
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+import os
+from typing import Optional
 
-sqlite_file_name = "database.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
+DATABASE_PATH = os.getenv("DATABASE_PATH", "./database.db")
 
+sqlite_url = f"sqlite:///{DATABASE_PATH}"
+
+# Vytvoření složky, pokud neexistuje (důležité pro Render Disk)
+db_dir = os.path.dirname(DATABASE_PATH)
+if db_dir and not os.path.exists(db_dir):
+    os.makedirs(db_dir)
 engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
+
+PORT = int(os.getenv("PORT", 8000))
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
@@ -32,8 +41,10 @@ class Article(SQLModel, table=True):
     image: str = ""
     is_premium: bool = False
 
-SECRET_KEY = "tvoje-velmi-tajne-heslo" # V produkci pak změň!
+SECRET_KEY = os.getenv("SECRET_KEY", "vyvojarske-heslo-pro-lokal")
 ALGORITHM = "HS256"
+
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "mojeheslo123")
 # pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/token")
 
@@ -64,10 +75,11 @@ def create_access_token(data: dict):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 app = FastAPI()
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://10.0.1.54:5173"], # Port tvého Vite
+    allow_origins=[FRONTEND_URL, "http://localhost:5173"], # Povolíme lokál i produkci
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -266,15 +278,13 @@ def register(user: User, session: Session = Depends(get_session)):
 def on_startup():
     create_db_and_tables()
     with Session(engine) as session:
-        # Zkontrolujeme, jestli už admin existuje
         admin_exists = session.exec(select(User).where(User.email == "admin@fyzio.cz")).first()
         if not admin_exists:
             admin = User(
                 email="admin@fyzio.cz",
-                hashed_password=get_password_hash("mojeheslo123"), # Tady si dej své heslo
+                hashed_password=get_password_hash(ADMIN_PASSWORD), # Použije heslo z ENV nebo default
                 is_admin=True
             )
             session.add(admin)
             session.commit()
-            print("--- ADMIN VYTVOŘEN (admin@fyzio.cz / mojeheslo123) ---")
-
+            print("--- ADMIN PŘIPRAVEN ---")
