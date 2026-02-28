@@ -10,16 +10,15 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import os
 from typing import Optional
 
-DATABASE_PATH = os.getenv("DATABASE_PATH", "./database.db")
-
+DATABASE_PATH = os.getenv("DATABASE_PATH", "database.db")
 sqlite_url = f"sqlite:///{DATABASE_PATH}"
 
-# Vytvoření složky, pokud neexistuje (důležité pro Render Disk)
+# Vytvoření složky, pokud neexistuje (pro Render Disk)
 db_dir = os.path.dirname(DATABASE_PATH)
 if db_dir and not os.path.exists(db_dir):
-    os.makedirs(db_dir)
-engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
+    os.makedirs(db_dir, exist_ok=True)
 
+engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
 PORT = int(os.getenv("PORT", 8000))
 
 def create_db_and_tables():
@@ -79,7 +78,11 @@ FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL, "http://localhost:5173"], # Povolíme lokál i produkci
+    allow_origins=[
+        FRONTEND_URL,
+        "http://localhost:5173",
+        "http://10.0.1.54:5173"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -16,7 +16,7 @@ export default function Login() {
     formData.append('username', email);
     formData.append('password', password);
 
-    const res = await fetch('http://10.0.1.54:8000/api/token', {
+    const res = await fetch('https://fyzio-pro-laiky-server.onrender.com/api/token', {
       method: 'POST',
       body: formData,
     });

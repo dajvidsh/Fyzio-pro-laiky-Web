@@ -12,7 +12,7 @@ export default function ArticleDetail() {
     const token = localStorage.getItem('token');
     const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
 
-    fetch(`http://10.0.1.54:8000/api/articles/${id}`, { headers })
+    fetch(`https://fyzio-pro-laiky-server.onrender.com/api/articles/${id}`, { headers })
       .then(res => {
         if (res.status === 402) {
           setIsLocked(true);

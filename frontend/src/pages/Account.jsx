@@ -25,13 +25,13 @@ export default function Account() {
 
     // Načtení dat o uživateli a platbě paralelně
     Promise.all([
-      fetch('http://10.0.1.54:8000/api/me', {
+      fetch('https://fyzio-pro-laiky-server.onrender.com/api/me', {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(res => {
         if (!res.ok) throw new Error("Neautorizováno");
         return res.json();
       }),
-      fetch('http://10.0.1.54:8000/api/payment-info').then(res => res.json())
+      fetch('https://fyzio-pro-laiky-server.onrender.com/api/payment-info').then(res => res.json())
     ])
     .then(([userData, paymentData]) => {
       setUser(userData);
@@ -61,7 +61,7 @@ export default function Account() {
     }
 
     try {
-      const res = await fetch('http://10.0.1.54:8000/api/change-password', {
+      const res = await fetch('https://fyzio-pro-laiky-server.onrender.com/api/change-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
