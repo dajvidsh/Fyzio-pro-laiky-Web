@@ -12,7 +12,7 @@ export default function ArticleDetail() {
     const token = localStorage.getItem('token');
     const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
 
-    fetch(`http://localhost:8000/api/articles/${id}`, { headers })
+    fetch(`http://10.0.1.54:8000/api/articles/${id}`, { headers })
       .then(res => {
         if (res.status === 402) {
           setIsLocked(true);

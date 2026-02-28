@@ -7,7 +7,7 @@ export default function Blog() {
   const latestArticles = [...articles].sort((a, b) => b.id - a.id)
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/articles')
+    fetch('http://10.0.1.54:8000/api/articles')
       .then(res => res.json())
       .then(data => {
         setArticles(data);

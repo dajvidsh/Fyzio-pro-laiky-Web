@@ -42,7 +42,7 @@ export default function Admin() {
   const token = localStorage.getItem('token');
   console.log("Stahuji uživatele s tokenem:", token); // DEBUG
 
-  fetch('http://localhost:8000/api/users', {
+  fetch('http://10.0.1.54:8000/api/users', {
     headers: { 'Authorization': `Bearer ${token}` }
   })
   .then(res => {
@@ -66,14 +66,14 @@ export default function Admin() {
 };
 
   const fetchArticles = () => {
-    fetch('http://localhost:8000/api/articles')
+    fetch('http://10.0.1.54:8000/api/articles')
       .then(res => res.json())
       .then(setArticles);
   };
 
   const togglePremium = (userId) => {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:8000/api/users/${userId}/toggle-premium`, {
+    fetch(`http://10.0.1.54:8000/api/users/${userId}/toggle-premium`, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${token}` }
     }).then(fetchUsers);
@@ -83,7 +83,7 @@ export default function Admin() {
     e.preventDefault();
     const token = localStorage.getItem('token'); // 1. Získáme token
 
-    fetch('http://localhost:8000/api/articles', {
+    fetch('http://10.0.1.54:8000/api/articles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ const handleDelete = (id) => {
   if (confirm('Smazat tento článek?')) {
     const token = localStorage.getItem('token'); // Nezapomenout i tady!
 
-    fetch(`http://localhost:8000/api/articles/${id}`, {
+    fetch(`http://10.0.1.54:8000/api/articles/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     }).then(() => {

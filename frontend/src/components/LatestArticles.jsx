@@ -9,7 +9,7 @@ export default function LatestArticles() {
   .slice(0, 3);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/articles').then(res => res.json()).then(data => setArticles(data)).catch(err => console.error("Chyba pri nacitani", err));
+    fetch('http://10.0.1.54:8000/api/articles').then(res => res.json()).then(data => setArticles(data)).catch(err => console.error("Chyba pri nacitani", err));
   }, []);
 
   return (

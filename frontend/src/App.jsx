@@ -16,6 +16,7 @@ import Admin from "./pages/Admin.jsx";
 import ArticleDetail from "./pages/ArticleDetail.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import Account from "./pages/Account.jsx";
 
 const Home = () => (
   <>
@@ -41,6 +42,7 @@ function App() {
             <Route path="/blog/:id" element={<ArticleDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/account" element={<Account />} />
           </Routes>
         <Footer />
     </Router>

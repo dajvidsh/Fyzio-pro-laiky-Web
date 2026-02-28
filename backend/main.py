@@ -67,7 +67,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"], # Port tvého Vite
+    allow_origins=["http://10.0.1.54:5173"], # Port tvého Vite
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -135,6 +135,26 @@ async def get_optional_user(request: Request, session: Session = Depends(get_ses
     except:
         return None
     return None
+
+# Získání info o aktuálně přihlášeném uživateli
+@app.get("/api/me", response_model=User)
+def get_me(current_user: User = Depends(get_current_user)):
+    return current_user
+
+# Změna hesla
+class PasswordChange(SQLModel):
+    new_password: str
+
+@app.post("/api/change-password")
+def change_password(
+    data: PasswordChange,
+    current_user: User = Depends(get_current_user),
+    session: Session = Depends(get_session)
+):
+    current_user.hashed_password = get_password_hash(data.new_password)
+    session.add(current_user)
+    session.commit()
+    return {"message": "Heslo bylo úspěšně změněno"}
 
 
 # 2. Samotný endpoint článku
