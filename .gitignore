@@ -1,0 +1,6 @@
+.idea/
+backend/database.db
+node_modules/
+.venv/
+__pycache__/
+frontend/node_modules/
