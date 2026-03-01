@@ -10,20 +10,20 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import os
 from typing import Optional
 
-# Načtení URL a Tokenu z prostředí (pro Turso)
+# Načtení URL z prostředí (od Neonu)
 DATABASE_URL = os.getenv("DATABASE_URL")
-DATABASE_AUTH_TOKEN = os.getenv("DATABASE_AUTH_TOKEN")
 
-if DATABASE_URL and DATABASE_AUTH_TOKEN:
-    # Konfigurace pro Turso (v produkci)
-    # Používáme protokol sqlite+libsql pro propojení přes libsql-client
-    if DATABASE_URL.startswith("libsql://"):
-        sqlite_url = DATABASE_URL.replace("libsql://", "sqlite+libsql://")
-    else:
-        sqlite_url = DATABASE_URL
-
-    sqlite_url = f"{sqlite_url}?authToken={DATABASE_AUTH_TOKEN}"
-    engine = create_engine(sqlite_url)
+if DATABASE_URL:
+    # Render/Neon používají protokol postgres://, ale SQLAlchemy vyžaduje postgresql://
+    if DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    # Připojení k Neon Postgres
+    engine = create_engine(DATABASE_URL)
+else:
+    # Lokální vývoj (zůstane ti SQLite soubor)
+    DATABASE_PATH = "database.db"
+    sqlite_url = f"sqlite:///{DATABASE_PATH}"
+    engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
 else:
     # Lokální vývoj (SQLite soubor)
     DATABASE_PATH = "database.db"
