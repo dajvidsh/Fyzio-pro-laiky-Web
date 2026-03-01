@@ -32,7 +32,7 @@ export default function LatestArticles() {
           {latestArticles.map((article) => (
             <article key={article.id} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
               {/* Obrázek */}
-              <div className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
+              <Link to={`/blog/${article.id}`} className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
                 {article.image ? (
                   <img
                     src={article.image}
@@ -48,7 +48,7 @@ export default function LatestArticles() {
                     </div>
                   </div>
                 )}
-              </div>
+              </Link>
 
               {/* Obsah karty */}
               <div className="p-6">

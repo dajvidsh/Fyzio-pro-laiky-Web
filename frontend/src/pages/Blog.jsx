@@ -45,7 +45,7 @@ export default function Blog() {
               <article key={article.id} className="group flex flex-col">
                 {/* Obrázek s efektem */}
                 <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500">
-                  <div className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
+                  <Link to={`/blog/${article.id}`} className="h-48 overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 relative">
                       {article.image ? (
                         <img
                           src={article.image}
@@ -61,7 +61,7 @@ export default function Blog() {
                           </div>
                         </div>
                       )}
-                    </div>
+                    </Link>
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-yellow-500 uppercase tracking-widest shadow-sm">
                     {article.category}
                   </div>
