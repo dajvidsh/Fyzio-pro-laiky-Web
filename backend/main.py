@@ -20,11 +20,6 @@ if DATABASE_URL:
     # Připojení k Neon Postgres
     engine = create_engine(DATABASE_URL)
 else:
-    # Lokální vývoj (zůstane ti SQLite soubor)
-    DATABASE_PATH = "database.db"
-    sqlite_url = f"sqlite:///{DATABASE_PATH}"
-    engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
-else:
     # Lokální vývoj (SQLite soubor)
     DATABASE_PATH = "database.db"
     sqlite_url = f"sqlite:///{DATABASE_PATH}"
