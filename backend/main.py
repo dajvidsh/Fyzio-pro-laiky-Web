@@ -10,15 +10,27 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import os
 from typing import Optional
 
-DATABASE_PATH = os.getenv("DATABASE_PATH", "database.db")
-sqlite_url = f"sqlite:///{DATABASE_PATH}"
+# Načtení URL a Tokenu z prostředí (pro Turso)
+DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_AUTH_TOKEN = os.getenv("DATABASE_AUTH_TOKEN")
 
-# Vytvoření složky, pokud neexistuje (pro Render Disk)
-db_dir = os.path.dirname(DATABASE_PATH)
-if db_dir and not os.path.exists(db_dir):
-    os.makedirs(db_dir, exist_ok=True)
+if DATABASE_URL and DATABASE_AUTH_TOKEN:
+    # Konfigurace pro Turso (v produkci)
+    # Používáme protokol sqlite+libsql pro propojení přes libsql-client
+    if DATABASE_URL.startswith("libsql://"):
+        sqlite_url = DATABASE_URL.replace("libsql://", "sqlite+libsql://")
+    else:
+        sqlite_url = DATABASE_URL
 
-engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
+    sqlite_url = f"{sqlite_url}?authToken={DATABASE_AUTH_TOKEN}"
+    engine = create_engine(sqlite_url)
+else:
+    # Lokální vývoj (SQLite soubor)
+    DATABASE_PATH = "database.db"
+    sqlite_url = f"sqlite:///{DATABASE_PATH}"
+    engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
+
+
 PORT = int(os.getenv("PORT", 8000))
 
 def create_db_and_tables():
