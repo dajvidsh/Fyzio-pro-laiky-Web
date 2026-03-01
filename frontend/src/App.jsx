@@ -17,6 +17,7 @@ import ArticleDetail from "./pages/ArticleDetail.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Account from "./pages/Account.jsx";
+import ProblemCategory from "./pages/ProblemCategory.jsx";
 
 const Home = () => (
   <>
@@ -43,6 +44,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/problemy/:categoryId" element={<ProblemCategory />} />
           </Routes>
         <Footer />
     </Router>

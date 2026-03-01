@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="logo change">
+    <list default="true" id="5051e430-bc9c-47ff-a0b9-340bd5749285" name="Changes" comment="article middle break word fix">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/ProblemCategory.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ArticleDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ArticleDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Account.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Contact.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -64,7 +74,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ai.playground.ignore.import.keys.banner.in.settings": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Problems-pages",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/david/PycharmProjects/Fyzio-pro-laiky/frontend/public",
     "node.js.detected.package.eslint": "true",
@@ -136,7 +146,8 @@
       <updated>1772197352954</updated>
       <workItem from="1772197353988" duration="18980000" />
       <workItem from="1772220955853" duration="8601000" />
-      <workItem from="1772289508745" duration="16228000" />
+      <workItem from="1772289508745" duration="16342000" />
+      <workItem from="1772359569191" duration="2763000" />
     </task>
     <task id="LOCAL-00001" summary="Innitial commit, frontend">
       <option name="closed" value="true" />
@@ -226,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772314840116</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="article middle break word fix">
+      <option name="closed" value="true" />
+      <created>1772315702848</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1772315702848</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +256,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Problems-pages" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -253,7 +284,8 @@
     <MESSAGE value="change of api address" />
     <MESSAGE value="gdpr Footer.jsx" />
     <MESSAGE value="logo change" />
-    <option name="LAST_COMMIT_MESSAGE" value="logo change" />
+    <MESSAGE value="article middle break word fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="article middle break word fix" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Fyzio_pro_laiky$Fyzio_pro_laiky.coverage" NAME="Fyzio-pro-laiky Coverage Results" MODIFIED="1772197950735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

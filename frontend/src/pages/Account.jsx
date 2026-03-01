@@ -151,7 +151,8 @@ export default function Account() {
                     </div>
 
                     <p className="text-[10px] text-slate-400 italic text-center leading-relaxed">
-                      {payment.instructions}
+                      {/*{payment.instructions}*/}
+                      Po zaplacení Vám aktivuji přístup do Premium.
                     </p>
                   </div>
                 )}

@@ -63,9 +63,9 @@ export default function Navbar() {
               </button>
               {problemsOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-slate-200 shadow-xl rounded-2xl py-2 z-50">
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Hlava a krk</Link>
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Trup a páteř</Link>
-                  <Link to="/problemy/zada" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Paže a ruce</Link>
+                  <Link to="/problemy/hlava-krk" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Hlava a krk</Link>
+                  <Link to="/problemy/trup-pater" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Trup a páteř</Link>
+                  <Link to="/problemy/ruce-paze" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Paže a ruce</Link>
                   <Link to="/problemy/nohy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Nohy</Link>
                 </div>
               )}
@@ -120,10 +120,10 @@ export default function Navbar() {
               </button>
               {problemsOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-slate-200 shadow-xl rounded-2xl py-2 z-50">
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Hlava a krk</Link>
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Trup a páteř</Link>
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Paže a ruce</Link>
-                  <Link to="/problemy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Nohy</Link>
+                  <Link to="/problemy/hlava-krk" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Hlava a krk</Link>
+                  <Link to="/problemy/trup-pater" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Trup a páteř</Link>
+                  <Link to="/problemy/ruce-paze" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Paže a ruce</Link>
+                  <Link to="/problemy/nohy" className="block px-4 py-2 hover:bg-slate-50 text-sm font-medium" onClick={() => setProblemsOpen(false)}>Nohy</Link>
                 </div>
               )}
             </div>

@@ -19,8 +19,8 @@ export default function Hero() {
 
           {/* Tlačítka (CTA) */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/" className="bg-yellow-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-blue-200 active:scale-95">
-              Najít můj problém
+            <Link to="/blog" className="bg-yellow-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-blue-200 active:scale-95">
+              Blog
             </Link>
               <Link to="/contact" className="bg-white text-slate-700 border-2 border-slate-200 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-50 transition-all active:scale-95">
                 Kontakt
