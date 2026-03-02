@@ -38,7 +38,7 @@ export default function ArticleDetail() {
     <div className="max-w-xl mx-auto py-20 text-center">
        <h1 className="text-4xl font-black mb-4">🔒 Premium obsah</h1>
        <p className="mb-8">Tento článek je dostupný pouze pro naše Premium členy.</p>
-       <button onClick={() => navigate('/register')} className="bg-yellow-500 px-8 py-3 rounded-xl font-bold">Chci Premium</button>
+       <button onClick={() => navigate('/account')} className="bg-yellow-500 px-8 py-3 rounded-xl font-bold">Chci Premium</button>
     </div>
   );
 
@@ -79,11 +79,8 @@ export default function ArticleDetail() {
               {/* U prémiových článků vyrenderujeme jen kousek */}
               <div
                   className="prose prose-slate max-w-none wrap-break-word whitespace-normal"
-                  dangerouslySetInnerHTML={{ __html: article.content.substring(0, 300).replace(/&nbsp;/g, ' ') + "..." }}
+                  dangerouslySetInnerHTML={{ __html: article.content.replace(/&nbsp;/g, ' ') }}
                 />
-              {/*<div className="mt-12 p-10 bg-slate-900 rounded-[2.5rem] text-center text-white shadow-2xl">*/}
-              {/*   /!* ... tvůj kód zámku ... *!/*/}
-              {/*</div>*/}
             </>
           ) : (
             // Zde je to kouzlo pro zobrazení stylovaného textu
