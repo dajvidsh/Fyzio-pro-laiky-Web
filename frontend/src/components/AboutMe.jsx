@@ -15,6 +15,7 @@ export default function AboutMe() {
                 <img
                   src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D1059985526148554&f=1&nofb=1&ipt=7be18ef6647c1f11f7388a3f1e4b683822408bb4f15ab3a1054243b77507e495"
                   alt="Fyzioterapeut Radim"
+
                   className="w-full h-full object-cover shadow-inner"
                 />
               </div>
